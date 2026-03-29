@@ -1,0 +1,72 @@
+{
+  "name": "Raksha - Women's Safety & Empowerment",
+  "short_name": "Raksha",
+  "description": "Tech-Powered Security & Empowerment Platform for Women",
+  "theme_color": "#1a1a1a",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "start_url": "/home",
+  "icons": [
+    {
+      "src": "/raksha-logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/raksha-logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/main.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "categories": ["lifestyle", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Emergency SOS",
+      "short_name": "SOS",
+      "description": "Send emergency alert",
+      "url": "/sos",
+      "icons": [
+        {
+          "src": "/raksha-logo.svg",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Chat Support",
+      "short_name": "Chat",
+      "description": "Legal advice chatbot",
+      "url": "/chat",
+      "icons": [
+        {
+          "src": "/raksha-logo.svg",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Community",
+      "short_name": "Community",
+      "description": "Join community discussions",
+      "url": "/community",
+      "icons": [
+        {
+          "src": "/raksha-logo.svg",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
