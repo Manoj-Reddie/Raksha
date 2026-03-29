@@ -5,6 +5,12 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { z } from "zod";
 
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  throw new Error("JWT_SECRET environment variable is not defined");
+}
+
 const signupSchema = z.object({
   username: z.string().min(3, "Username must be at least 3 characters long"),
   phoneNo: z
@@ -50,7 +56,7 @@ export async function addUser({ username, password, email, phoneNo }) {
 
     const token = jwt.sign(
       { user: user._id.toString() },
-      process.env.NEXT_PUBLIC_JWT_SECRET,
+      JWT_SECRET,
       { expiresIn: "7d" }
     );
 
@@ -91,7 +97,7 @@ export async function loginUser({ type, slug, password }) {
 
     const token = jwt.sign(
       { user: user._id.toString() },
-      process.env.NEXT_PUBLIC_JWT_SECRET,
+      JWT_SECRET,
       { expiresIn: "7d" }
     );
 
@@ -169,7 +175,7 @@ export async function loginWellWisher(username, passcode, nickname) {
 
     const token = jwt.sign(
       { username: user.username, nickname },
-      process.env.NEXT_PUBLIC_JWT_SECRET,
+      JWT_SECRET,
       { expiresIn: "7d" }
     );
 

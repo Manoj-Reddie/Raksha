@@ -5,6 +5,12 @@ import User from "../models/user";
 import dbConnect from "../utils/dbConnect";
 import jwt from "jsonwebtoken";
 
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  throw new Error("JWT_SECRET environment variable is not defined");
+}
+
 export async function getAllPosts(communityId) {
   try {
     await dbConnect();
@@ -63,7 +69,7 @@ export async function createPost(communityId, postData, token) {
       throw new Error("Authentication token is required");
     }
 
-    const decoded = jwt.verify(token, process.env.NEXT_PUBLIC_JWT_SECRET);
+    const decoded = jwt.verify(token, JWT_SECRET);
     const user = await User.findById(decoded.user);
     if (!user) {
       throw new Error("User not found");
@@ -131,7 +137,7 @@ export async function createComment(postId, newComment, token) {
       throw new Error("Comment text is required");
     }
 
-    const decoded = jwt.verify(token, process.env.NEXT_PUBLIC_JWT_SECRET);
+    const decoded = jwt.verify(token, JWT_SECRET);
     if (!decoded || !decoded.user) {
       throw new Error("Invalid authentication token");
     }
