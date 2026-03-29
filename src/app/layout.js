@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import LegalGuide from "@/components/legalGuide";
 import Image from "next/image";
 import logo from "../../public/raksha-logo.svg";
+import PWAInstallPrompt from "@/components/PWAInstallPrompt";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -67,6 +68,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen w-full`}
       >
+        <PWAInstallPrompt />
         <div className=" hidden md:flex z-10 fixed justify-start   p-2 pt-0 rounded-b-lg items-center ml-20">
           <Image
             className=""
