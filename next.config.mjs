@@ -6,6 +6,8 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV !== "development",
   },
+  // Enable Turbopack (Next.js 16 default)
+  turbopack: {},
 };
 
 export default withPWA({
