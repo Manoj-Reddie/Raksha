@@ -2,12 +2,14 @@
 
 ## Issue Resolved
 
-**Error:** 
+**Error:**
+
 ```
 This build is using Turbopack, with a `webpack` config and no `turbopack` config.
 ```
 
 **Root Cause:**
+
 - Next.js 16 introduced Turbopack as the default bundler
 - Your `next-pwa` plugin was using webpack configuration
 - Need to explicitly enable Turbopack config to resolve the conflict
@@ -53,6 +55,7 @@ const nextConfig = {
 ## Warnings (Non-blocking)
 
 ⚠️ **Turbopack root directory warning** (optional fix):
+
 - Caused by multiple lockfiles in parent directory
 - Add to `next.config.mjs` to silence:
   ```javascript
@@ -62,6 +65,7 @@ const nextConfig = {
   ```
 
 ⚠️ **metadataBase warning** (optional enhancement):
+
 - Add to layout.js metadata if needed:
   ```javascript
   metadataBase: new URL("https://raksha.app"),
@@ -70,6 +74,7 @@ const nextConfig = {
 ## Next Steps
 
 1. **Deploy to Vercel:**
+
    ```bash
    git add .
    git commit -m "fix: Add Turbopack config for Next.js 16 compatibility"
@@ -87,6 +92,7 @@ const nextConfig = {
 ## Summary
 
 Your Raksha app is now:
+
 - ✅ Compatible with Next.js 16 Turbopack
 - ✅ PWA features fully enabled
 - ✅ Ready for production deployment
